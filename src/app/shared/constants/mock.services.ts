@@ -1,6 +1,7 @@
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { UserModel } from '../models/user.model';
-import { mockUser } from './mock.models';
+import { mockCategory, mockUser } from './mock.models';
+import { CategoryModel } from '../models/category.model';
 
 export const userServiceMock = {
   userSubject: new BehaviorSubject<UserModel>(mockUser),
@@ -18,3 +19,9 @@ export const userServiceMock = {
     sessionStorage.setItem('token', token ?? '');
   }
 };
+
+export const catagoryServiceMock = {
+  listCategories: ():Observable<CategoryModel[]> => {
+    return of([mockCategory]);
+  }
+}

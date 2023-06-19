@@ -1,3 +1,4 @@
+import { CategoryModel } from '../models/category.model';
 import { UserModel } from '../models/user.model';
 
 export const mockUser: UserModel = {
@@ -20,4 +21,9 @@ export const mockUserDefault: UserModel = {
   category: [4, 5, 6],
   accessToken: 'mockDefault',
   tokenType: 'mockDefault',
+};
+
+export const mockCategory: CategoryModel = {
+  description: 'mockData',
+  id: 1,
 };
