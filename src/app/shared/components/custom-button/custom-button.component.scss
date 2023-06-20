@@ -1,0 +1,21 @@
+.btn {
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #FFDD00;
+  color: #0f265c;
+}
+
+.secundary {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #0f265c;
+}
+
+.primary:disabled {
+  background-color: rgba(0, 0, 0, .1);
+}

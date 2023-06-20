@@ -1,0 +1,9 @@
+<button
+  [id]="idElement"
+  [class]="'btn ' + type + ' ' + class"
+  (click)="onClickEventNotification()"
+  [disabled]="disabled"
+  data-testid="custom-button"
+>
+  {{ label }}
+</button>

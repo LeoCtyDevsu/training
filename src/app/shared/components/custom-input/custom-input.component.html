@@ -1,0 +1,21 @@
+<div class="dflex flex-column mb-14">
+  <label
+    class="input-label mb-8"
+    [for]="idElement"
+    data-testid="custom-label-input"
+    >{{ label }}</label
+  >
+  <input
+    #inputElement
+    [id]="idElement"
+    [ngClass]="{ 'invalid-input': errors }"
+    [type]="type"
+    [value]="value"
+    [placeholder]="placeholder"
+    (keyup)="onKeyupEventNotification(inputElement.value)"
+    data-testid="custom-input"
+  />
+  <small class="invalid-control" *ngIf="errors || formParent?.hasError">{{
+    errorMenssage
+  }}</small>
+</div>

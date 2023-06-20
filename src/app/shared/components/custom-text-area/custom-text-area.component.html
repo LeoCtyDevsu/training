@@ -1,0 +1,15 @@
+<div class="dflex flex-column mb-14">
+  <label class="input-label mb-8" data-testid="custom-label-textarea">{{
+    label
+  }}</label>
+  <textarea
+    [id]="idElement"
+    [ngClass]="{ 'invalid-input': errors }"
+    [placeholder]="placeholder"
+    rows="4"
+    [value]="value"
+    (keyup)="validityError()"
+    data-testid="custom-textarea"
+  ></textarea>
+  <small class="invalid-control" *ngIf="errors">{{ errorMenssage }}</small>
+</div>

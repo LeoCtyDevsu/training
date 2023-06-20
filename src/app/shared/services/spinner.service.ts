@@ -18,8 +18,6 @@ export class SpinnerService {
   }
 
   hide() {
-    setTimeout(() => {
-      this.spinnerSubject.next(false);
-    }, 2000);
+    this.spinnerSubject.next(false);
   }
 }
