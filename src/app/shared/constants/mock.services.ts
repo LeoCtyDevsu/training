@@ -1,7 +1,8 @@
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { UserModel } from '../models/user.model';
-import { mockCategory, mockUser } from './mock.models';
+import { mockBook, mockCategory, mockUser } from './mock.models';
 import { CategoryModel } from '../models/category.model';
+import { BookModel } from '../models/book.model';
 
 export const userServiceMock = {
   userSubject: new BehaviorSubject<UserModel>(mockUser),
@@ -17,11 +18,17 @@ export const userServiceMock = {
   },
   setToken: (token: string): void => {
     sessionStorage.setItem('token', token ?? '');
-  }
+  },
 };
 
 export const catagoryServiceMock = {
-  listCategories: ():Observable<CategoryModel[]> => {
+  listCategories: (): Observable<CategoryModel[]> => {
     return of([mockCategory]);
+  },
+};
+
+export const bookServiceMock = {
+  getBook: (id: string): Observable<BookModel> => {
+    return of(mockBook);
   }
-}
+};

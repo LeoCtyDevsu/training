@@ -1,3 +1,4 @@
+import { BookModel } from '../models/book.model';
 import { CategoryModel } from '../models/category.model';
 import { UserModel } from '../models/user.model';
 
@@ -26,4 +27,18 @@ export const mockUserDefault: UserModel = {
 export const mockCategory: CategoryModel = {
   description: 'mockData',
   id: 1,
+};
+
+export const mockBook: BookModel = {
+  id: 'mockBook',
+  title: 'mockBook',
+  author: 'mockBook',
+  resume: 'mockBook',
+  image: 'mockBook',
+  url: 'mockBook',
+  userRegister: 'mockBook',
+  category: [1, 2, 3],
+  public: true,
+  isbn13: 1,
+  price: 'mockBook',
 };
