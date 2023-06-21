@@ -43,10 +43,10 @@ describe('CustomInputComponent', () => {
     const customLabel = debugElement.query(
       By.css('[data-testid="custom-label-input"]')
     );
-    expect(customInput.attributes['id']).toBe('custom-input-1');
-    expect(customInput.attributes['type']).toBe('text');
-    expect(customInput.attributes['placeholder']).toBe('mockPlaceholder');
-    expect(customLabel.nativeElement.textContent).toBe('mockText');
+    expect(customInput.attributes['id']).toBe(component.idElement);
+    expect(customInput.attributes['type']).toBe(component.type);
+    expect(customInput.attributes['placeholder']).toBe(component.placeholder);
+    expect(customLabel.nativeElement.textContent).toBe(component.label);
   });
 
   it('click event', () => {

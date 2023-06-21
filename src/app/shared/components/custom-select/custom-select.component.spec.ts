@@ -34,8 +34,8 @@ describe('CustomSelectComponent', () => {
       By.css('[data-testid="custom-label-select"]')
     );
     expect(component.elements).toHaveLength(1);
-    expect(customInput.attributes['id']).toBe('custom-select-1');
-    expect(customLabel.nativeElement.textContent).toBe('mockText');
+    expect(customInput.attributes['id']).toBe(component.idElement);
+    expect(customLabel.nativeElement.textContent).toBe(component.label);
   });
 
   it('change event', () => {

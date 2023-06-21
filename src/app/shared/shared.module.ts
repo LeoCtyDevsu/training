@@ -8,6 +8,9 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CustomTextAreaComponent } from './components/custom-text-area/custom-text-area.component';
 import { CustomSelectComponent } from './components/custom-select/custom-select.component';
 import { CustomLabelComponent } from './components/custom-label/custom-label.component';
+import { CustomCheckboxComponent } from './components/custom-checkbox/custom-checkbox.component';
+import { CustomCategoriesComponent } from './components/custom-categories/custom-categories.component';
+import { CustomGalleryComponent } from './components/custom-gallery/custom-gallery.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { CustomLabelComponent } from './components/custom-label/custom-label.com
     SpinnerComponent,
     CustomTextAreaComponent,
     CustomSelectComponent,
-    CustomLabelComponent
+    CustomLabelComponent,
+    CustomCheckboxComponent,
+    CustomCategoriesComponent,
+    CustomGalleryComponent
   ],
   imports: [CommonModule, RouterModule, HttpClientModule],
   exports: [],

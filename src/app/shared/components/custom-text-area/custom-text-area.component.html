@@ -3,12 +3,13 @@
     label
   }}</label>
   <textarea
+    #inputTextArea
     [id]="idElement"
     [ngClass]="{ 'invalid-input': errors }"
     [placeholder]="placeholder"
     rows="4"
     [value]="value"
-    (keyup)="validityError()"
+    (keyup)="validityError(inputTextArea.value)"
     data-testid="custom-textarea"
   ></textarea>
   <small class="invalid-control" *ngIf="errors">{{ errorMenssage }}</small>

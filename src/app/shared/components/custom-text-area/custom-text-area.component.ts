@@ -1,10 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, ValidationErrors } from '@angular/forms';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'custom-text-area',
   templateUrl: './custom-text-area.component.html',
   styleUrls: ['./custom-text-area.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => CustomTextAreaComponent),
+    },
+  ],
 })
 export class CustomTextAreaComponent implements ControlValueAccessor {
   @Input() idElement: string = '';
@@ -30,7 +37,9 @@ export class CustomTextAreaComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  validityError() {
+  validityError(value: string) {
+    this.value = value;
+    this.onChange(value);
     if (this.errors?.['required']) {
       this.errorMenssage = `Campo: ${this.label} es requerido.`;
     }

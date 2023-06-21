@@ -1,1 +1,9 @@
-<p>custom-label works!</p>
+<div class="dflex justify-content-start align-items-start mb-8">
+  <label [id]="idElement" class="label-title mr-8" data-testid="custom-label"
+    >{{ label }}:</label
+  >
+  <p *ngIf="!isURL" class="description-title" data-testid="custom-label-description">{{ description }}</p>
+  <a *ngIf="isURL" class="description-title" [href]="description" data-testid="custom-label-description-url">{{
+    description
+  }}</a>
+</div>

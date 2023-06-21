@@ -1,0 +1,13 @@
+<h2 class="text-left w100">Categorías</h2>
+<div class="dflex flex-wrap justify-content-start align-items-start">
+  <div *ngFor="let category of categories">
+    <app-checkbox
+      [idElement]="'category-' + category.id"
+      [label]="category.description"
+      [checked]="isChecked(category.id)"
+      [value]="isChecked(category.id)"
+      (onClickEvent)="onClickEventNotification(category.id)"
+      data-testid="custom-categories"
+    />
+  </div>
+</div>

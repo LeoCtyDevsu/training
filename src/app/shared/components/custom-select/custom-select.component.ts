@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SelectItem } from '../../models/select-item.model';
 
 @Component({
-  selector: 'app-custom-select',
+  selector: 'custom-select',
   templateUrl: './custom-select.component.html',
   styleUrls: ['./custom-select.component.scss']
 })

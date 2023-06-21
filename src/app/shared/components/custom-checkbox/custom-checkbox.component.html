@@ -1,0 +1,15 @@
+<div class="dflex justify-content-start align-items-center mb-14">
+  <input
+    #inputCheckbox
+    [id]="idElement"
+    type="checkbox"
+    [class]="class"
+    (click)="onClickEventNotification(inputCheckbox.value)"
+    [checked]="value"
+    [value]="value"
+    data-testid="custom-checkbox"
+  />
+  <label class="input-label" data-testid="custom-label-checkbox">{{
+    label
+  }}</label>
+</div>

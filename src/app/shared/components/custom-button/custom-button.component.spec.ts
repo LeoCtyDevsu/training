@@ -32,9 +32,9 @@ describe('CustomButtonComponent', () => {
       By.css('[data-testid="custom-button"]')
     );
     const button = customButton.nativeElement as HTMLButtonElement;
-    expect(customButton.classes['mb-3']).toBeTruthy();
-    expect(customButton.classes['secundary']).toBeTruthy();
-    expect(customButton.attributes['id']).toBe('custom-button-1');
+    expect(customButton.classes[component.class]).toBeTruthy();
+    expect(customButton.classes[component.type]).toBeTruthy();
+    expect(customButton.attributes['id']).toBe(component.idElement);
     expect(button.disabled).toBeTruthy();
   });
 

@@ -1,45 +1,58 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomTextAreaComponent } from './custom-text-area.component';
+import { CustomCheckboxComponent } from './custom-checkbox.component';
 import { By } from '@angular/platform-browser';
 
-describe('CustomTextAreaComponent', () => {
-  let component: CustomTextAreaComponent;
-  let fixture: ComponentFixture<CustomTextAreaComponent>;
+describe('CustomCheckboxComponent', () => {
+  let component: CustomCheckboxComponent;
+  let fixture: ComponentFixture<CustomCheckboxComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CustomTextAreaComponent]
+      declarations: [CustomCheckboxComponent],
     });
-    fixture = TestBed.createComponent(CustomTextAreaComponent);
+    fixture = TestBed.createComponent(CustomCheckboxComponent);
     component = fixture.componentInstance;
-    component.idElement = 'custom-input-1';
+    component.idElement = 'custom-checkbox-1';
     component.label = 'mockText';
-    component.placeholder = 'mockPlaceholder';
-    component.errors = { required: true };
+    component.class = 'mockText';
+    component.value = true;
     fixture.detectChanges();
   });
 
-  it('create custom text area', () => {
+  it('create custom checkbox', () => {
     expect(component).toBeTruthy();
   });
 
   it('input params', () => {
     const { debugElement } = fixture;
     const customInput = debugElement.query(
-      By.css('[data-testid="custom-textarea"]')
+      By.css('[data-testid="custom-checkbox"]')
     );
     const customLabel = debugElement.query(
-      By.css('[data-testid="custom-label-textarea"]')
+      By.css('[data-testid="custom-label-checkbox"]')
     );
     expect(customInput.attributes['id']).toBe(component.idElement);
-    expect(customInput.attributes['placeholder']).toBe(component.placeholder);
+    expect(customInput.classes[component.class]).toBeTruthy();
     expect(customLabel.nativeElement.textContent).toBe(component.label);
   });
 
+  it('click event', () => {
+    const { debugElement } = fixture;
+    const customInput = debugElement.query(
+      By.css('[data-testid="custom-checkbox"]')
+    );
+    let mockValue: boolean = false;
+    component.onClickEvent.subscribe((res) => {
+      mockValue = res;
+    });
+    customInput.triggerEventHandler('click', {});
+    expect(mockValue).toBeTruthy();
+  });
+
   it('write a value', () => {
-    component.writeValue('mockValue');
-    expect(component.value).toBe('mockValue');
+    component.writeValue(true);
+    expect(component.value).toBeTruthy();
   });
 
   it('register on change function', () => {
@@ -66,11 +79,5 @@ describe('CustomTextAreaComponent', () => {
     }
     expect(component.setDisabledState).toBeDefined();
     expect(component.disabled).toBeTruthy();
-  });
-
-  it('validity error function with required error', () => {
-    component.validityError('mockData');
-    expect(component.validityError).toBeDefined();
-    expect(component.errorMenssage).toBe('Campo: mockText es requerido.');
   });
 });
