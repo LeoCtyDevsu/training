@@ -22,10 +22,20 @@ import { CustomGalleryComponent } from './components/custom-gallery/custom-galle
     CustomLabelComponent,
     CustomCheckboxComponent,
     CustomCategoriesComponent,
-    CustomGalleryComponent
+    CustomGalleryComponent,
   ],
   imports: [CommonModule, RouterModule, HttpClientModule],
-  exports: [],
+  exports: [
+    CustomButtonComponent,
+    CustomInputComponent,
+    SpinnerComponent,
+    CustomTextAreaComponent,
+    CustomSelectComponent,
+    CustomLabelComponent,
+    CustomCheckboxComponent,
+    CustomCategoriesComponent,
+    CustomGalleryComponent,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

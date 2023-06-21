@@ -14,7 +14,7 @@ export const userServiceMock = {
     return mockUser;
   },
   getToken: (): string | null => {
-    return sessionStorage.getItem('token');
+    return 'token';
   },
   setToken: (token: string): void => {
     sessionStorage.setItem('token', token ?? '');

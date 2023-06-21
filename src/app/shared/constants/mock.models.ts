@@ -13,6 +13,17 @@ export const mockUser: UserModel = {
   tokenType: 'mockData',
 };
 
+export const mockUserDataResponse: UserModel = {
+  accessToken: 'adadao8732487234ahskjd',
+  category: [1, 2, 3],
+  email: 'email@google.com',
+  name: 'Administrador',
+  password: 'Qabalah10.',
+  tokenType: 'Bearer',
+  userId: '123jas',
+  username: 'LeoCty',
+};
+
 export const mockUserDefault: UserModel = {
   userId: 'mockDefault',
   name: 'mockDefault',

@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-title">
+    <h3 class="title">Iniciar sesión</h3>
+  </div>
+  <div class="card-content">
+    <form [formGroup]="signinForm">
+      <custom-input
+        ngDefaultControl
+        idElement="input-username"
+        type="text"
+        label="Usuario"
+        placeholder="Ej. makoto"
+        formControlName="username"
+        data-testid="username-input"
+        [errors]="getUsernameControlError()"
+      />
+      <custom-input
+        ngDefaultControl
+        idElement="input-password"
+        type="password"
+        label="Contraseña"
+        placeholder="*****"
+        formControlName="password"
+        data-testid="password-input"
+        [errors]="getPasswordControlError()"
+      />
+    </form>
+  </div>
+  <div class="card-footer">
+    <a routerLink="/register">Regístrate aquí</a>
+    <custom-button
+      idElement="button-main"
+      label="Iniciar Sesión"
+      (onClickEvent)="signIn()"
+      data-testid="signin-button"
+      [disabled]="signinForm.invalid"
+    />
+  </div>
+</div>
