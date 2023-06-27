@@ -1,0 +1,24 @@
+<div class="top-content">
+  <h2>Tus libros</h2>
+  <custom-button
+    idElement="button-create-book"
+    type="secundary"
+    label="Agregar Libro"
+    routerLink="/admin/books/create"
+  />
+</div>
+<div class="top-content">
+  <custom-input
+    ngDefaultControl
+    idElement="input-filter"
+    type="text"
+    placeholder="Ej. Angular, React"
+    (onKeyupEvent)="filterByTitle($event)"
+  />
+  <custom-select
+    [elements]="categories"
+    idElement="select-categories"
+    (onChangeEvent)="filterByCategory($event)"
+  />
+</div>
+<custom-gallery [elements]="books" />

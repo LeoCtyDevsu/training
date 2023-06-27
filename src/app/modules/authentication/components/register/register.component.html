@@ -1,1 +1,75 @@
-<p>register works!</p>
+<div class="card">
+  <div class="card-title">
+    <h3 class="title">Registrarse</h3>
+  </div>
+  <div class="card-content">
+    <form [formGroup]="registerForm">
+      <custom-input
+        ngDefaultControl
+        idElement="input-username"
+        type="text"
+        label="Nombre de usuario"
+        placeholder="Ej. makoto"
+        formControlName="userName"
+        [errors]="getUserNameControlError()"
+        data-testid="username-input"
+      ></custom-input>
+      <custom-input
+        ngDefaultControl
+        idElement="input-mail"
+        type="text"
+        label="Correo Electrónico"
+        placeholder="Ej. name@example.com"
+        formControlName="email"
+        [errors]="getEmailControlError()"
+        data-testid="mail-input"
+      ></custom-input>
+      <custom-input
+        ngDefaultControl
+        idElement="input-password"
+        type="password"
+        label="Contraseña"
+        placeholder="*****"
+        formControlName="password"
+        [errors]="getPasswordControlError()"
+        data-testid="password-input"
+      ></custom-input>
+      <custom-input
+        ngDefaultControl
+        idElement="input-confirm-password"
+        type="password"
+        label="Confirmar contraseña"
+        placeholder="*****"
+        formControlName="confirmPassword"
+        [errors]="getConfirmPasswordControlError()"
+        [formParent]="getRegisterFormErrors()"
+      ></custom-input>
+      <h3 class="title">Categorías</h3>
+      <ng-container formArrayName="categoriesArray">
+        <div class="static-height mb-8" [formGroup]="categoriesForm">
+          <custom-checkbox
+            ngDefaultControl
+            *ngFor="let category of categories"
+            [idElement]="'category-' + category.id"
+            [label]="category.description"
+            (onClickEvent)="selectCategory(category)"
+            data-testid="category-checkbox"
+          />
+        </div>
+      </ng-container>
+      <label class="text-danger" *ngIf="getMinCheckbox()">
+        Debe seleccionar al menos 3 categorías.
+      </label>
+    </form>
+  </div>
+  <div class="card-footer">
+    <a routerLink="/signin">Iniciar sesión</a>
+    <custom-button
+      idElement="button-main"
+      label="Registrar"
+      (onClickEvent)="register()"
+      [disabled]="registerForm.invalid || categoriesSelected.length < 3"
+      data-testid="register-button"
+    ></custom-button>
+  </div>
+</div>

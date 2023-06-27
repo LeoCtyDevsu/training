@@ -13,6 +13,7 @@
         formControlName="username"
         data-testid="username-input"
         [errors]="getUsernameControlError()"
+        data-testid="input-username"
       />
       <custom-input
         ngDefaultControl
@@ -23,6 +24,7 @@
         formControlName="password"
         data-testid="password-input"
         [errors]="getPasswordControlError()"
+        data-testid="input-password"
       />
     </form>
   </div>
@@ -34,6 +36,7 @@
       (onClickEvent)="signIn()"
       data-testid="signin-button"
       [disabled]="signinForm.invalid"
+      data-testid="button-signin"
     />
   </div>
 </div>

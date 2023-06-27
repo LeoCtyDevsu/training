@@ -1,0 +1,33 @@
+<div class="top-content">
+  <h2>Tus libros</h2>
+</div>
+<custom-gallery [elements]="books" [columns]="'col-4'" />
+<div class="dflex justify-content-start align-items-center">
+  <app-button
+    idElement="see-more"
+    label="Ver más"
+    type="secundary"
+    [routerLink]="['/admin/my-books']"
+  ></app-button>
+</div>
+<div class="top-content">
+  <h2>Publicaciones</h2>
+</div>
+<div class="dflex justify-content-center align-items-start">
+  <div class="w70">
+    <custom-gallery [elements]="filterBooks" />
+  </div>
+  <div class="w30">
+    <div class="card-border">
+      <custom-input
+        ngDefaultControl
+        idElement="input-filter"
+        type="text"
+        label="Buscar"
+        placeholder="Ej. Angular, React"
+        (onKeyupEvent)="filterByTitle($event)"
+      />
+      <custom-categories (onClickEvent)="categorySelected($event)" />
+    </div>
+  </div>
+</div>

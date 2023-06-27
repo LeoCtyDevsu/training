@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomCategoriesComponent } from './custom-categories.component';
 import { CategoryService } from '../../services/category.service';
-import { catagoryServiceMock } from '../../constants/mock.services';
 import { By } from '@angular/platform-browser';
 import { click } from '../../helpers/testing.helper';
+import { categoryServiceMock } from '../../constants/mock.services';
 
 describe('CustomCategoriesComponent', () => {
   let component: CustomCategoriesComponent;
@@ -13,7 +13,7 @@ describe('CustomCategoriesComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CustomCategoriesComponent],
-      providers: [{ provide: CategoryService, useValue: catagoryServiceMock }],
+      providers: [{ provide: CategoryService, useValue: categoryServiceMock }],
     });
     fixture = TestBed.createComponent(CustomCategoriesComponent);
     component = fixture.componentInstance;

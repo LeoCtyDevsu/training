@@ -1,0 +1,93 @@
+<div class="dflex justify-content-start align-items-center">
+  <h3>Registro Libro</h3>
+</div>
+<form [formGroup]="bookForm">
+  <div class="dflex justify-content-start align-items-center">
+    <div class="w50 p-8">
+      <custom-input
+        ngDefaultControl
+        idElement="input-book-name"
+        type="text"
+        label="Nombre del libro"
+        placeholder="Ej. Angular + NGRX"
+        formControlName="title"
+        [errors]="getTitleControlErrors()"
+      />
+    </div>
+    <div class="w50 p-8">
+      <custom-input
+        ngDefaultControl
+        idElement="input-book-author"
+        type="text"
+        label="Nombre del autor"
+        placeholder="Ej. Kevin Suárez"
+        formControlName="author"
+        [errors]="getAuthorControlErrors()"
+      />
+    </div>
+  </div>
+  <div class="dflex justify-content-start align-items-center">
+    <div class="w50 p-8">
+      <custom-input
+        ngDefaultControl
+        idElement="input-book-url"
+        type="text"
+        label="URL del libro"
+        placeholder="Ej. https://books-all.com/sabhjxm2kk"
+        formControlName="url"
+        [errors]="getURLControlErrors()"
+      />
+    </div>
+    <div class="w50 p-8">
+      <custom-input
+        ngDefaultControl
+        idElement="input-book-img"
+        type="text"
+        label="Imagen de portada"
+        placeholder="Ej. https://books-all.com/sabhjxm2kk/img"
+        formControlName="image"
+      />
+    </div>
+  </div>
+  <div class="dflex justify-content-start align-items-start">
+    <div class="w50 p-8">
+      <custom-text-area
+        ngDefaultControl
+        idElement="input-book-summary"
+        label="Resumen del libro"
+        placeholder="Ej. ..."
+        formControlName="resume"
+      />
+    </div>
+    <div class="w50 p-8">
+      <custom-checkbox
+        ngDefaultControl
+        idElement="input-book-img"
+        label="Publicar"
+        formControlName="public"
+        (onClickEvent)="selectPublic()"
+      />
+    </div>
+  </div>
+  <div class="dflex flex-column justify-content-start align-items-center">
+    <custom-categories
+      (onClickEvent)="categorySelected($event)"
+      [selectedCategory]="categoriesSelected"
+    />
+  </div>
+</form>
+<div class="dflex justify-content-end align-items-center">
+  <custom-button
+    idElement="button-cancel"
+    label="Cancelar"
+    type="secundary"
+    class="mr-8"
+    routerLink="/admin/books"
+  />
+  <custom-button
+    idElement="button-cancel"
+    label="Registrar"
+    [disabled]="bookForm.invalid || categoriesSelected.length === 0"
+    (onClickEvent)="registerBook()"
+  />
+</div>
